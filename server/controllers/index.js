@@ -104,12 +104,12 @@ const hostPage2 = (req, res) => {
 // controller functions in Express receive the full HTTP request
 // and a pre-filled out response object to send
 const hostPage3 = (req, res) => {
-    // res.render takes a name of a page to render.
-    // These must be in the folder you specified as views in your main app.js file
-    // Additionally, you don't need .jade because you registered the file type
-    // in the app.js as jade. Calling res.render('index')
-    // actually calls index.jade. A second parameter of JSON can be passed
-    // into the jade to be used as variables with #{varName}
+  // res.render takes a name of a page to render.
+  // These must be in the folder you specified as views in your main app.js file
+  // Additionally, you don't need .jade because you registered the file type
+  // in the app.js as jade. Calling res.render('index')
+  // actually calls index.jade. A second parameter of JSON can be passed
+  // into the jade to be used as variables with #{varName}
   res.render('page3');
 };
 
@@ -124,7 +124,7 @@ const hostPage4 = (req, res) => {
   };
 
   Dog.find(callback);
-}
+};
 
 // function to handle get request to send the name
 // controller functions in Express receive the full HTTP request
@@ -191,7 +191,7 @@ const setNameDog = (req, res) => {
   }
 
   // if required fields are good, then set name
-  //const name = `${req.body.firstname} ${req.body.lastname}`;
+  // const name = `${req.body.firstname} ${req.body.lastname}`;
 
   // dummy JSON to insert into database
   const dogData = {
@@ -261,7 +261,6 @@ const searchName = (req, res) => {
 };
 
 const searchNameDog = (req, res) => {
-
   if (!req.query.name) {
     return res.json({ error: 'Name is required to perform a search' });
   }
@@ -277,10 +276,8 @@ const searchNameDog = (req, res) => {
     if (!doc) {
       return res.json({ error: 'No dogs found!!' });
     }
-
-    doc.age++;
     // if a match, send the match back
-    return res.json({ name: doc.name, breed: doc.breed, age: doc.age });
+    return res.json({ name: doc.name, breed: doc.breed, age: doc.age++ });
   });
 };
 

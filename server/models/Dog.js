@@ -1,6 +1,6 @@
-//needs a name, breed, age, createdData
+// needs a name, breed, age, createdData
 
-//static function called findbyname
+// static function called findbyname
 
 const mongoose = require('mongoose');
 
@@ -11,48 +11,48 @@ mongoose.Promise = global.Promise;
 let DogModel = {};
 
 const DogSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true,
-        unique: true,
-    },
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+    unique: true,
+  },
 
-    breed: {
-        type: String,
-        required: true,
-        trim: true,
-    },
+  breed: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 
-    age: {
-        type: Number,
-        required: true,
-        min: 0
-    },
+  age: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
 
-    createdDate: {
-        type: Number,
-        min: 0
-    },
+  createdDate: {
+    type: Number,
+    min: 0,
+  },
 
-    createdData: {
-        type: Date,
-        default: Date.now,
-    },
+  createdData: {
+    type: Date,
+    default: Date.now,
+  },
 
 });
 
 DogSchema.statics.sayName = (dog) => {
-    console.log(dog.name);
+  console.log(dog.name);
 };
 
 
 DogSchema.statics.findByName = (name, callback) => {
-    const search = {
-        name,
-    };
+  const search = {
+    name,
+  };
 
-    return DogModel.findOne(search, callback);
+  return DogModel.findOne(search, callback);
 };
 
 DogModel = mongoose.model('Dog', DogSchema);
