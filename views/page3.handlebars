@@ -16,6 +16,7 @@
   <a href="/">Home</a>
   <a href="/page1">Page 1</a>
   <a href="/page2">Page 2</a>
+  <a href="/page4">Page 4</a>
 
   <h3>Make a dog :)</h3>
   <form id="dogCreation" action="/setNameDog" method="POST">
@@ -35,13 +36,6 @@
     <input type="submit" name="submit">
   </form>
 
-    {{#if dogs}}
-    <ul>
-      {{#each dogs}}
-        <li> {{this.name}} is {{this.age}} years old and is a {{this.breed}}</li>
-      {{/each}}
-    </ul>
-  {{/if}}
 </body>
 
 </html>
