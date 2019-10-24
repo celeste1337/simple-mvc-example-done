@@ -18,21 +18,30 @@
   <a href="/page2">Page 2</a>
 
   <h3>Make a dog :)</h3>
-  <form id="dogCreation">
+  <form id="dogCreation" action="/setNameDog" method="POST">
     <label for="name">Name</label>
     <input type="text" name="name">
     <label for="breed">Breed</label>
     <input type="text" name="breed">
     <label for="age">Age</label>
     <input type="number" name="age">
+    <input type="submit" name="submit">
   </form>
 
   <h3>Find a dog :)</h3>
-  <form id="dogSearch">
+  <form id="dogSearch" action="/findByNameDog" method="GET">
     <label for="name">Name</label>
     <input type="text" name="name">
     <input type="submit" name="submit">
   </form>
+
+    {{#if dogs}}
+    <ul>
+      {{#each dogs}}
+        <li> {{this.name}} is {{this.age}} years old and is a {{this.breed}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
 </body>
 
 </html>

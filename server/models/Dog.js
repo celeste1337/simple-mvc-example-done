@@ -2,8 +2,6 @@
 
 //static function called findbyname
 
-
-
 const mongoose = require('mongoose');
 
 
@@ -34,7 +32,6 @@ const DogSchema = new mongoose.Schema({
 
     createdDate: {
         type: Number,
-        required: true,
         min: 0
     },
 
